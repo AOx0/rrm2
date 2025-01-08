@@ -101,8 +101,8 @@ impl Steam {
             item: ItemId(item_id),
         } in self.items
         {
-            let game_id = write_into_buff(&mut game_id_buff, game_id);
-            let item_id = write_into_buff(&mut item_id_buff, item_id);
+            let game_id = write_number_into_buff(&mut game_id_buff, game_id);
+            let item_id = write_number_into_buff(&mut item_id_buff, item_id);
 
             command
                 .arg("+workshop_download_item")
@@ -239,7 +239,7 @@ async fn handle_download_start(
     _ = tx.send(Event::Starting(ItemId(item_id))).await
 }
 
-fn write_into_buff(buff: &mut [u8], value: usize) -> &str {
+fn write_number_into_buff(buff: &mut [u8], value: usize) -> &str {
     use std::io::{Cursor, Write};
 
     let mut cursor = Cursor::new(buff);

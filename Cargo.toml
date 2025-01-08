@@ -1,0 +1,7 @@
+[workspace]
+members = ["rrm-cli"]
+resolver = "2"
+default-members = [ "rrm-cli" ]
+
+[workspace.dependencies]
+tokio = { version = "1.42.0", features = ["full"]}

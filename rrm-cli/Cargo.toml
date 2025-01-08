@@ -1,0 +1,9 @@
+[package]
+name = "rrm-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+derive_builder = "0.20.2"
+flume = { version = "0.11.1", features = ["async"], default-features = false }
+tokio.workspace = true
